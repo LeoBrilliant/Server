@@ -20,7 +20,7 @@ int csopen(char * name, int oflag)
 			err_sys("cli_conn error");
 	}
 	sprintf(buf, " %d", oflag);
-	iov[0].iov_base = CL_OPEN " ";
+	iov[0].iov_base = (void *)(CL_OPEN " ");
 	iov[0].iov_len = strlen(CL_OPEN) + 1;
 	iov[1].iov_base = name;
 	iov[1].iov_len = strlen(name);
